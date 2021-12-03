@@ -43,6 +43,7 @@ const Card = (article) => {
   imageContainer.appendChild(image);
   cardAuthor.appendChild(credits);
   //return top element
+  cardContainer.addEventListener('click', () => console.log(`${article.headline}`));
   return cardContainer;
 }
 
