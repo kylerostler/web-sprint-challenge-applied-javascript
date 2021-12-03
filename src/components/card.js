@@ -60,11 +60,12 @@ const cardAppender = (selector) => {
   .then(resp => {
     const articlesObj = resp.data.articles;
     const articlesArray = Object.keys(articlesObj);
-    console.log(articlesObj);
-    console.log(articlesArray);
+
     for (let i = 0; i < articlesArray.length; i++) {
       const articleData = resp.data.articles[articlesArray[i]];
-      entryPt.appendChild(Card(articleData));
+      for (let i = 0; i < articleData.length; i++) {
+      entryPt.appendChild(Card(articleData[i]));
+      }
     }
   }).catch(error => {
     console.error(error);
