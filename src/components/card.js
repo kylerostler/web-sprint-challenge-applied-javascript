@@ -33,9 +33,9 @@ const Card = (article) => {
   cardAuthor.classList.add('author');
   imageContainer.classList.add('img-container');
   //add text
-  cardHeadline.textContent = `${resp.data.articles.headline}`;
-  image.src = resp.data.authorPhoto;
-  credits.textContent = `${resp.data.authorName}`
+  // cardHeadline.textContent = `${headline}`;
+  // image.src = .authorPhoto;
+  // credits.textContent = `${authorName}`
   //add heirarchy
   cardContainer.appendChild(cardHeadline);
   cardContainer.appendChild(cardAuthor);
@@ -58,15 +58,23 @@ const cardAppender = (selector) => {
   const entryPt = document.querySelector(selector);
   
 }
+
 axios.get('http://localhost:5000/api/articles')
   .then(resp => {
-    console.log(resp);
+    const articlesObj = resp.data.articles;
+    const articlesArray = Object.values(articlesObj);
+
+    console.log(articlesObj);
+    console.log(articlesArray);
+
+    for (let i = 0; i < articlesArray.length; i++) {
+      for (let i= 0; i < articlesArray[i].length; i++) {
+        console.log(articlesArray[i])
+      }
+    }
   }).catch(error => {
     console.error(error);
   })
-
-  const articleArray = Array.from(resp.data.articles);
-  console.log(articleArray);
 
 
 export { Card, cardAppender }
