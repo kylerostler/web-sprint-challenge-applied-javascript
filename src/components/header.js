@@ -28,7 +28,6 @@ const Header = (title, date, temp) => {
   headerContainer.appendChild(headerDate);
   headerContainer.appendChild(headerTitle);
   headerContainer.appendChild(headerTemp);
-  console.log(headerContainer)
   //return top element
   return headerContainer;
 }
@@ -43,7 +42,7 @@ const headerAppender = (selector) => {
   //
   
   const entryPoint = document.querySelector(selector);
-  entryPoint.appendChild(Header('this title', 'this date', 'this temp'));
+  entryPoint.appendChild(Header('Lambda Times', 'December 3,2021', '40 degrees F'));
 }
 
 export { Header, headerAppender }
